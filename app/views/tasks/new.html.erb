@@ -1,0 +1,16 @@
+<h1>新規作成画面</h1>
+注：登録ボタンを押すとcreateアクションに処理が飛ぶ
+<%= form_for @task do |f| %>
+<div>
+  <%= f.text_field :title %>
+  <%= f.label :title %>
+</div>
+
+<div>
+  <%= f.text_field :content %>
+  <%= f.label :content %>
+</div>
+
+<%= f.submit %>
+
+<% end %>
