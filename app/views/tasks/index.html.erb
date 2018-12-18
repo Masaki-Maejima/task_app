@@ -9,6 +9,14 @@
   <li>
     content: <%= task.content %>
   </li>
+
+  <%= link_to "delete", task, method: :delete,
+                                    data: { confirm: "You sure?" } %>
+
+
+
   <% end %>
+
+
 
 </ul>
