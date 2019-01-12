@@ -10,13 +10,10 @@
     content: <%= task.content %>
   </li>
 
-  <%= link_to "delete", task, method: :delete,
-                                    data: { confirm: "You sure?" } %>
 
-
-
+  <%= link_to '削除', task_path(task.id),
+  method: :delete, data: { confirm: "削除してよろしいですか？", commit: "削除する", cancel: "やめる", title: "ご確認ください" } %>
   <% end %>
-
 
 
 </ul>

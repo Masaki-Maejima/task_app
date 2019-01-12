@@ -17,7 +17,7 @@ class TasksController < ApplicationController
     #@task = Task.new(title: params[:task][:title], content: params[:task][:content])
 
     if @task.save
-    redirect_to tasks_url
+      redirect_to tasks_url
     else
       render :new
     end
@@ -25,29 +25,23 @@ class TasksController < ApplicationController
 
 
   def update
-
     @task = Task.find(params[:id])
     if @task.update(tasks_param)
       redirect_to tasks_path
     else
       render :edit
     end
-end
+  end
 
 
   def destroy
-
       @task = Task.find(params[:id])
-    if @task.destroy(tasks_param)
+      @task.destroy!
       redirect_to tasks_path
-    else
-      render :index
-
-    end
- end
+  end
 
   private
   def tasks_param
-    params.require(:task).permit(:title,:content)
+    params.require(:task).permit(:title, :content)
   end
 end
