@@ -1,21 +1,42 @@
-<h1>タスク一覧</h1>
-<ul>
 
-  <% @tasks.each do |task| %>
-  <li>
-    title: <%= task.title %>
-  </li>
+<header class="container">
+    <h1>Taskleaf</h1>
+</header>
+<div class="container">
+  <h1>タスク一覧</h1>
+  <%= link_to '新規登録',new_task_path, class: "btn-sm btn-primary" %>
 
-  <li>
-    content: <%= task.content %>
-  </li>
-  <%= link_to '詳細', task_path(task) %>
 
-  <%= link_to '編集', edit_task_path(task) %>
-  
-  <%= link_to '削除', task_path(task.id),
-  method: :delete, data: { confirm: "削除してよろしいですか？", commit: "削除する", cancel: "やめる", title: "ご確認ください" } %>
+
+<table class="table">
+  <thead>
+    <tr class"table-info">
+      <th scope="col">登録id</th>
+      <th scope="col">名称</th>
+      <th scope="col">説明</th>
+      <th scope="col">設定</th>
+      <th scope="col">登録日時</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+
+      <% @tasks.each do |task| %>
+    <tr>
+        <td><%= link_to task.id, task_path(task) %></td>
+        <td><%= task.title %></td>
+        <td><%= task.content %></td>
+        <td><%= link_to '詳細', task_path(task), class: "btn-sm btn-secondary" %>
+            <%= link_to '編集', edit_task_path(task), class: "btn-sm btn-primary" %>
+            <%= link_to '削除', task_path(task.id),
+            method: :delete, class: "btn-sm btn-danger",
+            data: { confirm: "削除してよろしいですか？", commit: "削除する", cancel: "やめる", title: "ご確認ください" } %>
+        </td>
+        <td><%=l task.created_at %></td>
+    </tr>
   <% end %>
 
-
-</ul>
+  </tbody>
+</table>
+</div>

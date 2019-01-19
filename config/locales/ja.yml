@@ -1,0 +1,21 @@
+# Files in the config/locales directory are used for internationalization
+ja:
+  time:
+    formats:
+      default: "%Y/%m/%d %H:%M:%S"
+    am: 午前
+    pm: 午後
+  activerecord:
+    models:
+      task: タスク
+    attributes:
+      task:
+        title: タイトル
+        content: コンテンツ
+    helpers:
+    select:
+      prompt: 選択してください
+    submit:
+      create: 登録する
+      submit: 保存する
+      update: 更新  

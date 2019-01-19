@@ -1,3 +1,4 @@
+<h1>タスク詳細</h1>
 <p>
   <strong>title : </strong>
   <%= @task.title %>
@@ -8,4 +9,7 @@
   <%= @task.content %>
 </p>
 
-<%= link_to '戻る',tasks_path %>
+  <%= link_to '戻る',tasks_path, class: "btn-sm btn-light" %>
+  <%= link_to '削除', task_path(@task.id),
+  method: :delete, class: "btn-sm btn-danger",
+  data: { confirm: "削除してよろしいですか？", commit: "削除する", cancel: "やめる", title: "ご確認ください" } %>
